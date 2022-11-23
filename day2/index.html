@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect react with CDN</title>
+</head>
+<body>
+    <div class="root"></div>
+    <script
+    crossorigin
+    src="https://unpkg.com/react@16/umd/react.development.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+  ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const rootElement = document.querySelector('.root')
+
+        const welcome = 'Welcome to 30 Days Of React'
+        const title = 'Getting Started React'
+        const subtitle = 'JavaScript Library'
+        const firstName = 'Asabeneh'
+        const lastName = 'Yetayeh'
+        const date = new Date().getFullYear()
+        const techs = ['HTML', 'CSS', 'JavaScript']
+
+        const headerStyles = {
+        backgroundColor: '#61DBFB',
+        fontFamily: 'Helvetica Neue',
+        padding: 25,
+        lineHeight: 1.5,
+        }
+        
+        const header = (
+                        <header style={headerStyles}>
+                            <h1>{welcome}</h1>
+                            <h2>{title}</h2>
+                            <h3>{subtitle}</h3>
+                            <p>{firstName} {lastName}</p>
+                            <small>{date}</small>
+                            <ul>{techs.map(e => <li>{e}</li>)}</ul>
+                        </header>
+        )
+        
+        const mainStyles = {
+        backgroundColor: '#F3F0F5',
+        }
+
+        const main = (
+                    <main style = {mainStyles}>
+                        <p>Prerequisite to get started react.js:</p>
+                        <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        </ul>
+                    </main>
+        )
+
+        const footer = (
+                    <footer>
+                        <p>Copyright 2020</p>
+                    </footer>
+        )
+
+        const app = (
+                    <div>
+                        {header}
+                        {main}
+                        {footer}
+                    </div>
+        )
+        // we render the JSX element using the ReactDOM package
+        // ReactDOM has the render method and the render method takes two arguments
+        ReactDOM.render(app, rootElement)
+    </script>
+</body>
+</html>
