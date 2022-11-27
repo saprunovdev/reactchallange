@@ -13,6 +13,7 @@ const RandomColor = () =>{
   return color
 }
 
+
 const ColoredDiv = () => {
  
   const color = RandomColor()
