@@ -5,7 +5,7 @@ import './index.css';
 const data = {
   title: '30 Days Of React',
   subtitle: 'Hexadecimal colors',
-  numberOfDivs: 30,
+  divs: new Array(36).fill(0), // change number here to change the amount of colored divs
 }
 
 const RandomColor = () =>{
@@ -15,9 +15,7 @@ const RandomColor = () =>{
 
 
 const ColoredDiv = () => {
- 
   const color = RandomColor()
-
   return(
   <div className = 'color_cube' style={{backgroundColor: color}}>
     <h4 className='center'>{color}</h4> 
@@ -25,16 +23,16 @@ const ColoredDiv = () => {
   )
 }
 
-const ColoredDivList = (props) => {
+const ColoredDivList = () => {
 //Have to create a loop here to call ColoredDiv component multiple times
-ColoredDiv()
+  return (data.divs.map(e => <ColoredDiv />))
 }
 
-const NumberGenerator = ({data}) => (
+const NumberGenerator = () => (
   <div className='center'>
     <h1>{data.title}</h1>
     <h2>{data.subtitle}</h2>
-    <ColoredDivList data = {data.numberOfDivs}/>
+    <ColoredDivList data = {data}/>
   </div>
 )
 

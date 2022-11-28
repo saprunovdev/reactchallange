@@ -17,7 +17,8 @@ code {
   display: flex;
   justify-content: center;
   max-width: 1000px;
-  background-color: bisque;
+  border: solid 1px;
+  border-color: rgb(26, 24, 21);
 }
 
 .center{
@@ -31,4 +32,5 @@ code {
   width: 100px;
   height: 100px;
   display: inline-flex;
+  margin: 2px;
 }
