@@ -27,7 +27,7 @@ const ColoredDiv = () => {
 
 const ColoredDivList = (props) => {
 //Have to create a loop here to call ColoredDiv component multiple times
-
+ColoredDiv()
 }
 
 const NumberGenerator = ({data}) => (
