@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+ul{
+ list-style: none;
+ text-align: left;
+
+}
+
 .wrapper{
   margin: auto;
   display: flex;
