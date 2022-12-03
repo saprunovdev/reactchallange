@@ -10,4 +10,5 @@
 
 - [ ] Make a single page application which change the body of the background based on the time of the day(Morning, Noon, Evening, Night)
 
+- [ ] Make a portfolio page with react
 
