@@ -1,0 +1,25 @@
+html, body{
+  height: 100%;
+}
+
+.wrap{
+  max-width: 600px;
+  margin: 0 auto;
+}
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #e5e5ed;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+}
+
+.y-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
