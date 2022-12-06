@@ -1,11 +1,17 @@
 import { Component } from 'react';
-
+import { Clock } from '../components/Clock';
 class Footer extends Component{
+
     render(){
         return(
             <div className='footer'>
-                <h1>Footer</h1>
-                <p> add date here and copywirte</p>
+                <div>
+                    <p>&copy; Saprunov.dev</p>
+                </div>
+
+                <div>
+                    <Clock/>
+                </div>
             </div>
         )
     }

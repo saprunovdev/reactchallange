@@ -2,6 +2,16 @@ html, body{
   height: 100%;
 }
 
+.dark{
+  background-color: rgb(38, 38, 38);
+  color:rgb(233, 233, 233);
+}
+
+.light{
+  background-color: aliceblue;
+  color:black;
+}
+
 .wrap{
   max-width: 600px;
   margin: 0 auto;
@@ -10,12 +20,18 @@ html, body{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #e5e5ed;
+  border: solid 1px #acacbc;
 }
 
 .footer{
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: solid 1px #acacbc;
 }
 
 .y-center{
