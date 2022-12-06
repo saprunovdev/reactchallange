@@ -9,7 +9,7 @@ class Header extends Component{
         return(
             <div className='header'>
                 <div>
-                <h1>Portfolio page</h1>
+                <h1>Header</h1>
                 </div>
                 <div className='y-center'>
                 <Button action = {this.changeTheme} value = 'Change '/>
