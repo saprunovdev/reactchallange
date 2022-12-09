@@ -6,4 +6,5 @@
 
 - [ ] Excercise 2 and 3 from day 6
  
- * start from day 16 (Higher order component)
+ * Continue on day 18
+ 
