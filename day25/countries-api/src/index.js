@@ -24,10 +24,11 @@ const Country = ({
 
     return(
       <div className='country'>
-        <span>{name}: {capital}</span>
         <div className='country-flag'>
         <img src={flag} alt={name}/>
         </div>
+        <h4><span>{name}: {capital}</span></h4>
+        
         <p>languages: {languages.map((lang)=> <span>{lang.name} </span>)}</p>
         <p>Population: {population} </p>
         <p>Currencies: {currencies
@@ -43,6 +44,7 @@ const App = (props) => {
   // setting initial state and method to update state
   const [data, setData] = useState([])
 
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -53,21 +55,31 @@ const App = (props) => {
       const response = await fetch(url)
       const data = await response.json()
       setData(data)
-      console.log(data)
     } catch (error) {
       console.log(error)
     }
   }
 
+
+
+
     return(
       <div>
       <Header countriesCount = {data.length}/>
+
+      <div>
+      <h1>10 most populated countries</h1> 
+      {data.sort((a, b)=> b.population - a.population).slice(0,10).map((country)=>
+      <Country country={country}/>)}
+     </div>
 
      <div className='country-wrapper'>
         {data.map((country)=>(
           <Country country={country}/>
         ))}
      </div>
+     
+    
      </div>
     )
 }
