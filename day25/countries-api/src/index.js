@@ -39,7 +39,16 @@ const Country = ({
     )
 }
 
-
+const Statistics = (topTenPopulated) =>{
+  return(
+    <div>
+      {topTenPopulated.map(country=>{
+        return <p>{country.name}: {country.population}</p>
+      })}
+      
+    </div>
+  )
+}
 const App = (props) => {
   // setting initial state and method to update state
   const [data, setData] = useState([])
@@ -60,7 +69,7 @@ const App = (props) => {
     }
   }
 
-
+  const topTenPopulated = data.sort((a, b)=> b.population - a.population).slice(0,10)
 
 
     return(
@@ -69,8 +78,7 @@ const App = (props) => {
 
       <div>
       <h1>10 most populated countries</h1> 
-      {data.sort((a, b)=> b.population - a.population).slice(0,10).map((country)=>
-      <Country country={country}/>)}
+      {/* <Statistics topTenPopulated = {topTenPopulated} /> */}
      </div>
 
      <div className='country-wrapper'>
