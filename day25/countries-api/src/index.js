@@ -12,10 +12,14 @@ const Header = ({countriesCount}) =>{
   )
 }
 
-const Statistics = ({country:{name}}) =>{
+const Statistics = ({country:{name, population}, totalPopulation}) =>{
+  const populationPercentage = Math.floor(population/totalPopulation * 100)
+  console.log(populationPercentage)
   return(
-    <div>
-      <p>{name}</p>
+    <div className='bars'>
+      <div>{name}</div>
+      <div className='bar' style={{width:populationPercentage}}></div>
+      <div>{population}</div>
     </div>
   )
 }
@@ -67,9 +71,15 @@ const App = () => {
     }
   }
 
-  console.log(data)
-
   const topTenPopulated = data.sort((a, b)=>(b.population - a.population)).slice(0,10)
+  const totalPopulation = data.reduce((acc, cur) =>(acc + cur.population), 0)
+
+  // Top languages spoken in the world
+  // We have to itterate through the given array and append each lang to new array
+  // then we have how many times each lang appears in that array
+  const topTenLanguages = data.forEach((country)=> country.languages.forEach((language)=>{
+    console.log(language.name)
+  }))
 
 
     return(
@@ -78,8 +88,13 @@ const App = () => {
 
       <div>
       <h1>10 most populated countries</h1> 
+      <div className='bars'>
+        <div>Total:</div>
+        <div className='bar' style={{width:'100%'}}></div>
+        <div>{totalPopulation}</div>
+      </div>
       {topTenPopulated.map((country)=>(
-        <p>{country.name}: {country.population}</p>
+        <Statistics country={country} totalPopulation = {totalPopulation}/>
       ))}
      </div>
 
