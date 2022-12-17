@@ -67,6 +67,10 @@ const App = () => {
     }
   }
 
+  console.log(data)
+
+  const topTenPopulated = data.sort((a, b)=>(b.population - a.population)).slice(0,10)
+
 
     return(
       <div>
@@ -74,8 +78,8 @@ const App = () => {
 
       <div>
       <h1>10 most populated countries</h1> 
-      {data.map((country)=>(
-        <Statistics country={country}/>
+      {topTenPopulated.map((country)=>(
+        <p>{country.name}: {country.population}</p>
       ))}
      </div>
 
