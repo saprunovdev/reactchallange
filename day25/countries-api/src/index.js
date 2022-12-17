@@ -12,6 +12,14 @@ const Header = ({countriesCount}) =>{
   )
 }
 
+const Statistics = ({country:{name}}) =>{
+  return(
+    <div>
+      <p>{name}</p>
+    </div>
+  )
+}
+
 const Country = ({
   country:{
     flag,
@@ -39,20 +47,10 @@ const Country = ({
     )
 }
 
-const Statistics = (topTenPopulated) =>{
-  return(
-    <div>
-      {topTenPopulated.map(country=>{
-        return <p>{country.name}: {country.population}</p>
-      })}
-      
-    </div>
-  )
-}
-const App = (props) => {
+const App = () => {
   // setting initial state and method to update state
   const [data, setData] = useState([])
-
+  
 
   useEffect(() => {
     fetchData()
@@ -69,8 +67,6 @@ const App = (props) => {
     }
   }
 
-  const topTenPopulated = data.sort((a, b)=> b.population - a.population).slice(0,10)
-
 
     return(
       <div>
@@ -78,7 +74,9 @@ const App = (props) => {
 
       <div>
       <h1>10 most populated countries</h1> 
-      {/* <Statistics topTenPopulated = {topTenPopulated} /> */}
+      {data.map((country)=>(
+        <Statistics country={country}/>
+      ))}
      </div>
 
      <div className='country-wrapper'>
