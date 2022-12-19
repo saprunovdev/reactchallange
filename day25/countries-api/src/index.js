@@ -19,7 +19,7 @@ const Statistics = ({country:{name, population}, totalPopulation}) =>{
     <div className='bars'>
       <div>{name}</div>
       <div className='bar' style={{width:populationPercentage}}></div>
-      <div>{population}</div>
+      <div>{population.toLocaleString()}</div>
     </div>
   )
 }
@@ -91,14 +91,16 @@ const App = () => {
       <div className='bars'>
         <div>Total:</div>
         <div className='bar' style={{width:'100%'}}></div>
-        <div>{totalPopulation}</div>
+        <div>{totalPopulation.toLocaleString()}</div>
       </div>
       {topTenPopulated.map((country)=>(
         <Statistics country={country} totalPopulation = {totalPopulation}/>
       ))}
      </div>
 
+     <input type='text'></input>
      <div className='country-wrapper'>
+      
         {data.map((country)=>(
           <Country country={country}/>
         ))}
