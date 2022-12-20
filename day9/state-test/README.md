@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+To create a single page application that changes the body background based on the season of the year in React, you can follow these steps:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Create a new React project using create-react-app.
 
-## Available Scripts
+In the project's src directory, create a new file called "SeasonDisplay.js". This component will be responsible for displaying the appropriate background based on the current season.
 
-In the project directory, you can run:
+In SeasonDisplay.js, import the necessary libraries and components from React.
 
-### `npm start`
+Define a function called "SeasonDisplay" that takes in a single prop called "latitude". This prop will be used to determine the current season.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Inside the "SeasonDisplay" function, use a conditional statement to determine the current season based on the value of the "latitude" prop. You can use the JavaScript Date object to get the current month, and then use a series of if/else statements to determine the season based on the month.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inside the conditional statement, return a div element with a class name that corresponds to the current season. For example, if it is currently autumn, you can return a div with a class name of "autumn".
 
-### `npm test`
+In the project's src directory, create a new file called "App.js". This component will be responsible for rendering the "SeasonDisplay" component and passing it the necessary props.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In App.js, import the "SeasonDisplay" component and any other necessary libraries and components from React.
 
-### `npm run build`
+Define a class-based component called "App" that extends the React.Component class.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Inside the "App" class, define a state object with a property called "latitude". Set the initial value of this property to null.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Inside the "App" class, define a method called "getLocation" that uses the JavaScript navigator.geolocation API to get the user's current latitude. Set the value of the "latitude" property in state to the value returned by the API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Inside the "App" class, define a method called "render" that returns the "SeasonDisplay" component and passes it the "latitude" prop.
 
-### `npm run eject`
+Inside the "App" class, use the componentDidMount lifecycle method to call the "getLocation" method when the component is first rendered.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In the project's src directory, open the "index.js" file and import the "App" component. Then, render the "App" component to the root element of the DOM.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This should create a single page application that changes the body background based on the season of the year in React. You can style the body element using CSS to display different backgrounds for each season.

@@ -2,41 +2,59 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+const Button = ({text, onClick}) =>(
+  <button onClick={onClick}>
+    {text}
+  </button>
+)
+
+
 class App extends Component{
   state = {
-    color: 'green',
-    season: new Date().getMonth() + 1
+    season: '',
+    color: ''
   }
   
-  color = 'black'
-  seasonBg = (time) =>{
-
-    if(time >= 3 && time < 6){
-      this.setState(this.season = 'Spring')
-      this.setState(this.color = 'Green')
+  handleSeasons = () =>{
+    let currentMonth = new Date().getMonth() + 1
+    if (currentMonth >= 3 && currentMonth < 6){
+     this.setState({season:'Spring', color:'Yellow'})
     }
-    if(time >= 6 && time < 9){
-      this.setState(this.season = 'Summer')
-      this.setState(this.color = 'Yellow')
+    if (currentMonth >= 6 && currentMonth < 9){
+      this.setState({season:'Summer', color:'Green'})
     }
-    if(time >= 9 && time < 12){
-      this.setState(this.season = 'Fall')
-      this.setState(this.color = 'Black')
+    if (currentMonth >= 9 && currentMonth < 12){
+      this.setState({season:'Autumn', color: 'Grey'})
     }
     else{
-      this.setState(this.season = 'Winter')
-      this.setState(this.color = 'Red')
+      this.setState({season:'Winter', color:'Brown'})
     }
   }
+
+  componentDidMount(){
+    this.handleSeasons()
+  }
+  
 
 
 
   render(){
-
     return(
-      <div className='app' style={{backgroundColor: this.state.color}}>
-        <h1> {this.state.season}</h1>
-      </div>
+      <div className='app'>
+          <div style={{
+            width: '200px',
+            height: '200px',
+            border: 'solid black 1px',
+            backgroundColor: this.state.color
+          }}>
+            {this.state.season}
+          </div>
+
+          <Button text={'Summer'} onClick ={()=> this.setState({season:'Summer', color:'Green'})} />
+          <Button text={'Fall'} onClick ={()=> this.setState({season:'Autumn', color: 'Grey'})} />
+          <Button text={'Winter'} onClick ={()=> this.setState({season:'Winter', color:'Brown'})} />
+          <Button text={'Spring'} onClick ={()=> this.setState({season:'Spring', color:'Yellow'})} />
+    </div>
     )
   }
 }
