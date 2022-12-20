@@ -3,8 +3,7 @@
 ---
 https://www.30daysofreact.com/day-23/countries-data
 
-- How to structure the project properly?
+- Structure the project properly
 - Use axios to fetch data
 - Display the countries data and statistics
-- Make a search bar
-- 
+- Search by capital name (Antarctica has no capital)
