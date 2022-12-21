@@ -1,6 +1,6 @@
 //This will be the common ancestor for the statistic
 //We will form the data to display here and pass it to the languge and to the population file
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 
 const Statistics = ({countries}) =>{
     //Top ten populated and top ten langugas are stored here
