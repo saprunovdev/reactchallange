@@ -1,28 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Header from './components/header/Header';
 import Country from './components/countries/Countries';
 import Statistics from './components/statistics/Statistics';
-import axios from 'axios';
+import useFetch from './components/hooks/useFetch'
+
+
   
 
 
 const App = () => {
     // setting initial state and method to update state
-    const [data, setData] = useState([])
+    const url = 'https://restcountries.com/v2/all'
+
     const [query, setQuery] = useState('')
-    
-    useEffect(() => {fetchData()}, [])
-  
-    const fetchData = async () => {
-      const url = 'https://restcountries.com/v2/all'
-      try {
-        const response = await axios.get(url)
-        const data = await response.data
-        setData(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    const data = useFetch(url)
 
 
     let displayData
