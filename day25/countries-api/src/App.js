@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/header/Header';
 import Country from './components/countries/Countries';
 import Statistics from './components/statistics/Statistics';
+import axios from 'axios';
   
 
 
@@ -10,20 +11,19 @@ const App = () => {
     const [data, setData] = useState([])
     const [query, setQuery] = useState('')
     
-    useEffect(() => {
-      fetchData()
-    }, [])
+    useEffect(() => {fetchData()}, [])
   
     const fetchData = async () => {
       const url = 'https://restcountries.com/v2/all'
       try {
-        const response = await fetch(url)
-        const data = await response.json()
+        const response = await axios.get(url)
+        const data = await response.data
         setData(data)
       } catch (error) {
         console.log(error)
       }
     }
+
 
     let displayData
     query
@@ -37,12 +37,8 @@ const App = () => {
     const displayCountries = (displayData) =>(
         displayData.map((country)=>(
             <Country country={country}/>
-          ))
-    )
+          )))
 
-    let topTenPopulated = data.sort((a, b)=>(b.population - a.population)).slice(0,10)
-    const totalPopulation = data.reduce((acc, cur) =>(acc + cur.population), 0)
-    topTenPopulated.unshift({name:'Total', population:totalPopulation})
     
   
     // Top languages spoken in the world
@@ -60,9 +56,7 @@ const App = () => {
   
         <div>
         <h1>10 most populated countries</h1>
-        {topTenPopulated.map((country)=>(
-          <Statistics country={country} totalPopulation = {totalPopulation}/>
-        ))}
+        <Statistics countries = {data}/>
        </div>
   
        <input type='text' onChange={(e)=>{setQuery(e.target.value.toLowerCase())}}/>
