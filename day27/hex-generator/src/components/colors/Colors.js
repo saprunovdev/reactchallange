@@ -1,3 +1,4 @@
+
 const Colors = ({colors}) => {
 
     return(
@@ -20,8 +21,10 @@ const Color = ({color}) => {
 
     const handleClick =()=>{
         navigator.clipboard.writeText(color)
-
     }
+    
+
+    
 
     return(
         <div style={style} className='color'>

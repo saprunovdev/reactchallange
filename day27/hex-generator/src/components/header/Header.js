@@ -8,9 +8,7 @@ const Header = ({setNumber, setColor}) =>{
     const generate = () =>{
         let value = parseInt(ref.current.value)
 
-        gsap.from(".color", { rotation: 360 })
-
-        if(typeof value === 'number' && value > 0){
+        if(typeof value === 'number' && value > 0 && value < 5000){
             let colorsArray = []
 
             setNumber(value)
@@ -23,7 +21,7 @@ const Header = ({setNumber, setColor}) =>{
             
 
         }else{
-            alert('plese input number, which is greater than 0')
+            alert('plese input number, which is greater than 0 and less then 5000')
         }  
     }
 
