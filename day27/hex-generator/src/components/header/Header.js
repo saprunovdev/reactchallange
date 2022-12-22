@@ -1,11 +1,14 @@
 import React, {useRef} from 'react';
 import generateColor from '../utils/GenerateColor';
+import gsap from 'gsap';
 
 const Header = ({setNumber, setColor}) =>{
     const ref = useRef(null)
 
     const generate = () =>{
         let value = parseInt(ref.current.value)
+
+        gsap.from(".color", { rotation: 360 })
 
         if(typeof value === 'number' && value > 0){
             let colorsArray = []
@@ -16,6 +19,8 @@ const Header = ({setNumber, setColor}) =>{
                 colorsArray.push(generateColor())
             }
             setColor(colorsArray)
+            
+            
 
         }else{
             alert('plese input number, which is greater than 0')

@@ -24,7 +24,7 @@ const Color = ({color}) => {
     }
 
     return(
-        <div style={style}>
+        <div style={style} className='color'>
             <p>{color}</p>
             <button onClick={()=> handleClick()}>copy</button>
         </div>
