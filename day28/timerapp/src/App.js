@@ -1,6 +1,8 @@
 import './App.css';
 import Clock from './utils/Clock';
-import Calendar from './utils/Calendar';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+
 function App() {
   return (
     <div className="App">
