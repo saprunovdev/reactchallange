@@ -6,4 +6,4 @@
 
  
 
- 
+ - [ ] Studied docker and deployed telegram bot on server using node js simple app
