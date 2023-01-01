@@ -11,3 +11,5 @@
  - [ ] Deploy the blog and portfolio websites on server 
 
  - [ ] Start developing face recognition tool for DID 
+
+ - [ ] Today I am going to finish docker course
